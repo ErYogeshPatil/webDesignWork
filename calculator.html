@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+     <style>
+        .body {
+            background-color: rgb(15, 72, 66);
+            color: white;
+            margin: 10px;
+        }
+
+        #container {
+            text-align: center;
+            width: 300px;
+            height: 400px;
+            background-color: aqua;
+            border: 5px solid black;
+            ;
+            color: white;
+            box-shadow: 0 0 30px rgb(132, 130, 130);
+            position: relative;
+            top: 50%;
+            left: 37%;
+        }
+
+        
+    </style>
+</head>
+
+<body class="body">
+    <div id="container">
+        <h2 style="color:black;">Simple Calculator using Switch Case.</h2>
+        <input id="text1" type="text" placeholder="Enter the 1st Number"
+            style="background:transparent;border:none;border-bottom:1px solid black;margin-bottom:10px;">
+
+        <input id="text2" type="text" placeholder="Enter the 2nd Number"
+            style="background:transparent;border:none;border-bottom:1px solid black;margin-bottom:10px;">
+
+        <h3 style="color:black;">1.Addition 2.Substrac</h3>
+        <h3 style="color:black;">3.Multiply 4.Division</h3>
+
+        <input id="text3" type="text" placeholder="Enter the choice"
+            style="background:transparent;border:none;border-bottom:1px solid black;margin-bottom:10px;"><br>
+
+        <input type="Button" value="Calculate" id="click" onclick="getAns()">
+        <h3 id="ans" style="color:black;">Answer is...</h3>
+
+    </div>
+    <script>
+        function getAns() {
+            var tag = document.getElementById("ans");
+            var a = parseInt(document.getElementById("text1").value);
+            var b = parseInt(document.getElementById("text2").value);
+            var c = parseInt(document.getElementById("text3").value);
+            switch (c) {
+                case 1:
+                    if (c == 1) {
+                        var addition = a + b;
+                        tag.innerHTML = "Addition is: " + addition;
+                    }
+                    break;
+                case 2:
+                    if (c == 2) {
+                        var sub = a - b;
+                        tag.innerHTML = "Substraction is: " + sub;
+                    }
+                    break;
+                case 3:
+                    if (c == 3) {
+                        var mul = a * b;
+                        tag.innerHTML = "multiplication is: " + mul;
+                    }
+                    break;
+                case 4:
+                    if (c == 4) {
+                        var div = a / b;
+                        tag.innerHTML = "division  is: " + div;
+                    }
+                    break;
+
+                default:
+                    tag.innerHTML = "Wrong Input..."
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        body {
+            background-image: url('https://images.squarespace-cdn.com/content/v1/5ce4572fe3d0860001d61740/1584034089580-VRP49KCQK7P7TO9PPKXG/Commercial+office+building+design?format=1000w');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            /* background-size: cover; */
+        }
+
+        #option {
+            display: inline-flex;
+            float: left;
+            margin-left: 30px;
+            margin-top: 23%;
+            color: white;
+        }
+
+        #form {
+            float: right;
+            margin-right: 38%;
+            text-align: center;
+            background-color: rgb(0, 0, 0, 0.7);
+            color: rgb(255, 255, 255);
+            border-radius: 8px;
+            border: 2px solid rgb(251, 255, 255);
+            box-shadow: 5px 5px 25px aqua;
+            width: 300px;
+            height: auto;
+            padding: 10px;
+        }
+
+        #name,
+        #age,
+        #location,
+        #email,
+        #password,
+        #Cpassword {
+            border: none;
+            border-bottom: 2px solid rgb(74, 237, 240, 0.5);
+            text-align: left;
+            background: transparent;
+            color: white;
+        }
+
+        ::placeholder {
+            color: white;
+        }
+
+        .glow-button {
+            width: 100px;
+            height: 30px;
+            border: 1px solid white;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .glow-button:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-button:active {
+            color: #000
+        }
+
+        .glow-button:active:after {
+            background: transparent;
+        }
+
+        .glow-button:hover:before {
+            opacity: 1;
+        }
+
+        .glow-button:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Create a User Registration form with the following fields (name, age, location, email, password & confirm password). You need to perform the validation in JavaScript and once the form passes all validation alert the data in the fields. -->
+
+    <nav style="background-color:rgba(0, 0, 0, 0.3);height:50px;box-shadow:10px 0px 25px rgba(69, 233, 251);">
+        <div>
+            <div style="float:left;">
+                <a class="navbar-brand" href="#" style="margin-left:30px;color:white;">IT Developer Hub</a>
+            </div>
+            <div style="float:right;margin-right: 30px;">
+                <a class="navbar-brand" href="#" style="color:white">Features</a>
+                <a class="navbar-brand" href="#" style="color:white">Enterprise</a>
+                <a class="navbar-brand" href="#" style="color:white">Support</a>
+                <a class="navbar-brand" href="#" style="color:white">Pricing</a>
+                <button type="button" class="btn btn-default"
+                    style="border:1px solid rgb(70, 196, 238);color:rgb(255, 255, 255); border-radius:2px;">Sign
+                    up</button>
+            </div>
+        </div>
+    </nav>
+
+    <h2 class="animate__animated animate__backInLeft" style="margin:30px 0px 20px 20px;">Welcome in IT Developer Hub
+    </h2><br>
+    <div id="option">
+        <li>
+            <h3 class="animate__animated animate__flash">Contact :</h3>
+            <h3 class="animate__animated animate__flash"><span style="color:rgb(249, 66, 69);">Call on</span> +022
+                22446859</h3>
+            <h5 class="animate__animated animate__flash" style="color:aqua;">Mail on- www.ITDeveloperHub.com</h5>
+        </li>
+    </div>
+    <div id="form">
+        <form name="myform" method="get" onsubmit="formValidation()">
+            <h3 class="animate__animated animate__bounceIn" style="margin-bottom:20px;">Registration form</h3>
+            <label for="name">
+                <input id="name" type="text" placeholder="Name" name="name" required>
+            </label>
+            <p id="ans_name"></p>
+            <label for="age">
+                <input id="age" type="text" placeholder="Age" name="age" required>
+            </label>
+            <p id="ans_age"></p>
+            <label for="location">
+                <input id="location" type="text" placeholder="Location" name="location" required>
+            </label>
+            <p id="ans_location"></p>
+            <label for="email">
+                <input id="email" type="email" placeholder="Email" name="email">
+            </label>
+            <p id="ans_email"></p>
+            <label for="password">
+                <input id="password" type="password" placeholder="Password" name="password" required>
+            </label>
+            <p id="ans_password"></p>
+            <label for="Cpassword">
+                <input id="Cpassword" type="password" placeholder=" Confirm Password" name="Cpassword" required>
+            </label>
+            <p id="ans_Cpassword"></p>
+            <button class="glow-button" type="submit" value="submit" name="submit">SUBMIT</button>
+
+        </form>
+
+    </div>
+
+
+    <!-- JavaScript code for validation  -->
+    <script>
+        function formValidation() {
+            var age = document.myform.age.value;
+            var password = document.myform.password.value;
+            var Cpassword = document.myform.Cpassword.value;
+            var name = document.myform.name.value;
+            var location = document.myform.location.value;
+            var letters = /^[A-Za-z]+$/;
+
+            if (!name.match(letters)) {
+                alert("Name should be characters only");
+                document.getElementById("ans_name").innerHTML = "Name-characters only";
+                return false;
+            } else if (isNaN(age)) {
+                alert("Enter Age is Numeric value only & less than 100 year");
+                document.getElementById("ans_age").innerHTML = "Age-Numeric value only";
+                return false;
+            } else if (!location.match(letters)) {
+                alert("Location should be characters only");
+                document.getElementById("ans_location").innerHTML = "Location-characters only";
+                return false;
+            } else if (password.length <= 8) {
+                alert("Password must be at least 8 characters long.");
+                document.getElementById("ans_password").innerHTML = "Enter least 8 characters long";
+                return false;
+            } else if (password != Cpassword) {
+                alert("Password doesn't match ");
+                document.getElementById("ans_Cpassword").innerHTML = "Paswword doesn't match";
+                return false;
+            } else if (true) {
+                alert(" Registration Form Submitted Sucssesfully...Thank You !!");
+                return true;
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
+
+
